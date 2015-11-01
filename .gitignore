@@ -1,0 +1,9 @@
+# Vagrant runtime files
+.vagrant/
+
+# Latex output files
+*.aux
+*.pdf
+*.out
+*.log
+*.toc
