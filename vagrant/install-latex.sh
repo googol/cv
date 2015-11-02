@@ -10,3 +10,4 @@ export PATH="~/tools/texlive/bin/x86_64-linux:$PATH"
 
 tlmgr install ec babel-finnish hyphen-finnish
 
+tlmgr install moderncv etoolbox xcolor l3packages l3kernel microtype fontawesome cm-super
