@@ -1,0 +1,89 @@
+\documentclass[11pt,a4paper,sans]{moderncv}
+
+% moderncv themes
+\moderncvstyle{casual}                             % style options are 'casual' (default), 'classic', 'banking', 'oldstyle' and 'fancy'
+\moderncvcolor{blue}                               % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+\usepackage[utf8]{inputenc}
+\usepackage[finnish]{babel}
+% adjust the page margins
+\usepackage[scale=0.75]{geometry}
+\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+% personal data
+\name{Miika}{Hänninen}
+\title{Ansioluettelo}
+\address{Rautalammintie 3 B 602}{00550 Helsinki}{Finland}
+\phone[mobile]{+358~400~556~356}
+\email{miika.hanninen@gmail.com}
+\social[linkedin]{miikahanninen}
+\social[github]{googol}
+%\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+%\quote{Some quote}                                 % optional, remove / comment the line if not wanted
+
+\begin{document}
+\makecvtitle
+
+\section{Koulutus}
+\cventry{2014--}{Tietojenkäsittelytiede}{Helsingin Yliopisto}{Helsinki}{}{}  % arguments 3 to 6 can be left empty
+\cventry{1010--1014}{Tietojenkäsittelytiede}{Oulun Yliopisto}{Oulu}{}{(2 vuotta tästä ajasta olin poissaolevana: varusmiespalveluksessa ja töissä.)}
+\cventry{2007--2010}{International Baccalaureate Diploma}{Oulun Lyseon Lukio}{Oulu}{}{Kansainvälinen ylioppilastutkinto. Kaksikielinen diplomi myönnetty.}
+
+\section{Kokemus}
+\subsection{Työkokemus}
+\cventry{05.2013--nykyinen}{Ohjelmistosuunnittelija}{Talgraf Oy}{Oulu}{}{
+  Olen toiminut Talgrafilla yrityksen oman ohjelmiston, talousraportoinnin ja budjetoinnin järjestelmän Accunan parissa. Toteutusalustana projektilla on .net-framework windowsilla. Ohjelmisto on toteutettu C\#:lla.
+  Tehtäviini on kuulunut:
+  \begin{itemize}
+    \item Käyttöliittymäohjelmointi windows presentation foundationia käyttäen mvp-rakenteella.
+    \item Raporttien laskennan ja visualisoinnin toteuttamista.
+    \item Sql-tietokannan rakenteen suunnittelua ja ylläpitöä, sekä normaalia kyselyä.
+    \item Vanhemman koodin refaktorointia.
+  \end{itemize}
+  Lisäksi olen käynyt asiakaskäynneillä toimittamassa ja kouluttamassa ohjelmiston käyttöä ohjelmistoasiantuntijamme kanssa.\\
+  Muutettuani Helsinkiin opiskelemaan olen tehnyt töitä etänä osa-aikaisena.
+}
+\cventry{06.2011--08.2011}{Kesäharjoittelija (Ohjelmistokehittäjä)}{Soleno Oy}{Oulu}{}{Tehtäviini kuului asiakkaiden web-sivujen kehitys- ja ylläpitotehtäviä, Drupalin rest-rajapintalisäosan kehitystä ja dokumentointia, sekä yrityksen sisäiseen Visual Basicilla toteutettuun ohjelmiston uusien ominaisuuksien kehittäminen.}
+\cventry{06.2009--08.2009}{Kesäharjoittelija (Ohjelmistokehittäjä)}{Identoi Oy}{Oulu}{}{Tehtävinäni oli rfid-päätteellisen kioskitietokoneen konfigurointi sekä kehityksessä olleen Windows Mobile -sovelluksen testaaminen}
+\cventry{06.2008--08.2008}{Kesäharjoittelija (Ohjelmistokehittäjä)}{Identoi Oy}{Oulu}{}{Tehtävänäni oli vanhalla teknologialla toteutetun Windows Mobile -sovelluksen uudelleentoteuttaminen käyttäen .net-ympäristöä. Projektiin kuului sovelluksen käyttöliittymän ja logiikan toteutus, mutta suurin osa projektia oli vanhan sovellusframeworkin käyttämän verkkoprotokollan implementointi C\#:lla.}
+\clearpage
+\subsection{Muut projektit}
+\cventry{10.2015--nykyinen}{Ohjelmistosuunnittelija}{Roihu 2016 digitaaliset palvelut -tiimi}{Helsinki}{}{Olen osa vapaaehtoistiimiä joka tuottaa Suomen Partiolaisten tulevalle suurleirille tukipalveluita, muun muassa hankintajärjestelmän, leirirekisterin, sekä leiriläisen mobiiliapplikaation. Näitä projekteja toteutamme nodejs/loopback/react+flux-stackilla. Projektit tullaan julkaisemaan open sourcena.}
+
+\section{Kielitaito}
+\cvitemwithcomment{Suomi}{Äidinkieli}{}
+\cvitemwithcomment{Englanti}{Erinomainen}{Suoritin lukion täysin englanniksi. Englanti on lähes äidinkielen tasolla.}
+\cvitemwithcomment{Saksa}{Hyvä}{Ymmärrys on erinomaista, puhuessa tulee toimeen.}
+
+\section{Harrastukset}
+\cvitem{Partio}{Olen harrastanut partiota 6-vuotiaasta asti. Nautin siitä avoimen sosiaalisen ilmapiirin ja luonnossa olemisen vuoksi.}
+\cvitem{Lautapelit}{Lautapelien parissa on hauska viettää aikaa.}
+\cvitem{Kuntosali}{On again, off again -harrastus. Kuntosalilla käymisessä kiehtoo itsensä haastaminen ja voittaminen, sekä ajattelun täysi tarpeettomuus.}
+
+\section{Luottamustehtävät}
+\cvlistitem{Partiolippukunnan varajohtaja, hallituksen jäsen}
+\cvlistitem{Oulun tietojenkäsittelytieteen opiskelijoiden ainejärjestön Blankon toimihenkilö}
+
+\section{Varusmieskoulutus}
+Suoritin varusmiespalveluksen Ilmasotakoulussa Tikkakoskella 9.1.2012 - 4.1.2013. Suoritin aliupseerikurssin elektronisen sodankäynnin koulutushaarassa. Toimin peruskoulutuskauden ryhmänjohtajana ja aliupseerikurssin apukouluttajana. Ylenin 5.12.2012 kersantiksi. Johtajakauteni yleisarvio oli Kiitettävä (asteikko Erinomainen/Kiitettävä/Hyvä/Tyydyttävä/Välttävä).
+
+\clearpage
+%-----       letter       ---------------------------------------------------------
+% recipient data
+%\recipient{Company Recruitment team}{Company, Inc.\\123 somestreet\\some city}
+%\date{January 01, 1984}
+%\opening{Dear Sir or Madam,}
+%\closing{Yours faithfully,}
+%\enclosure[Attached]{curriculum vit\ae{}}          % use an optional argument to use a string other than "Enclosure", or redefine \enclname
+%\makelettertitle
+%
+%Hakemuskirje
+%
+%\[ e=\lim_{n \to \infty} \left(1+\frac{1}{n}\right)^n \]
+%
+%\makeletterclosing
+\end{document}
