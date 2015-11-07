@@ -43,6 +43,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell" do |s|
     s.privileged = false
     s.path = "vagrant/install-latex.sh"
+    s.args = ["/vagrant"]
   end
   config.vm.provision "shell" do |s|
     s.privileged = false

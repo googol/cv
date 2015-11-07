@@ -1,0 +1,13 @@
+install:
+    - vagrant/install-latex.sh /home/travis/build/googol/cv
+script:
+  - PATH="/home/vagrant/tools/texlive/bin/x86_64-linux:$PATH" make
+notifications:
+  email: false
+deploy:
+  provider: releases
+  api_key:
+    secure: owQj4mrmD9Fuv/dDmNoN2G+zwDi5HRcsQbnood7zVSfls01oD8szWWg2IA4qFeJHmsVuWZww/YLf4q4UaLQSe8KiYm9oNpjArNUefBk1+WrykgSkRGBQji0owXtQAjtIRKU1W+mBfJfjU4Z51IPrYQBs+jxm949ZzIKWXsayQN89OidF2Tp+9PXObEuaO47/8xTVvPDwRoDJVS99R8WPY/9JrAGH9uJxE7qWulSSS408G4hni1EtAJE2LHY2/WnkJVaNGeKA+st+vaCaREc/XL0fWVxBZfOr2hQ/EtPr3jm7RLl3p1BxTfVYQMR8Uk/0AuVpexQwDD5NHI+p/D9VSCxYSdUGn+QYswCYLkb1k1ngRkXtx/k8gUuUrWXcmDjc3rHMXRGHK3TlHOWCoBgkEDWrrAzRxvD12zMMOH5z4a0TYqSfq86oz5kVgWTde/amnujO0dcfEO4EnOKvGosc8+RMdYDB9Lm67G+4BVYe2eHo0Sa0ivLzFhrUsFItDfu2nXxq98CL4FH91OS8b477TKsmF4lEKGGvuWUwb6GNXD4Pq9ItqBC9jQqC6neDYWztyYN2bwK7Q6LRZs34SBkWUJB/TRS1PGVdmD8P2R5M2Xs7RkGtaahAQQ8VZVEn0FhKhJEB7+RpkKc4BC3mMAtaQ+F0xJeUVw3c32P2eC8lVzo=
+  file: out/cv.pdf
+  on:
+    repo: googol/cv
