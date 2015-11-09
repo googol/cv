@@ -11,3 +11,4 @@ deploy:
   file: out/cv.pdf
   on:
     repo: googol/cv
+    tags: true
