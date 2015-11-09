@@ -6,7 +6,6 @@ wget --no-verbose http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.ta
 tar xvzf install-tl-unx.tar.gz
 rm install-tl-unx.tar.gz
 cd install-tl-*
-export TEXLIVE_INSTALL_TEXDIR=/home/users/vagrant/texlive
 ./install-tl --profile="$latexProfile"
 
 export PATH="~/tools/texlive/bin/x86_64-linux:$PATH"
