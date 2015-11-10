@@ -8,7 +8,10 @@
 
 % character encoding
 \usepackage[utf8]{inputenc}
-\usepackage[finnish]{babel}
+\usepackage[english,finnish]{babel}
+\usepackage{iflang}
+
+\usepackage{ifthen}
 % adjust the page margins
 \usepackage[scale=0.75]{geometry}
 \setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
@@ -16,7 +19,7 @@
 
 % personal data
 \name{Miika}{Hänninen}
-\title{Ansioluettelo}
+\title{\IfLanguageName{finnish}{Ansioluettelo}{Curriculum Vitae}}
 \address{Rautalammintie 3 B 602}{00550 Helsinki}{Finland}
 \phone[mobile]{+358~400~556~356}
 \email{miika.hanninen@gmail.com}
@@ -25,51 +28,128 @@
 %\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
 %\quote{Some quote}                                 % optional, remove / comment the line if not wanted
 
+\newcommand{\current}{\IfLanguageName{finnish}{nykyinen}{current}}
+\newcommand{\univOulu}{\IfLanguageName{finnish}{Oulun Yliopisto}{University of Oulu}}
+\newcommand{\univHelsinki}{\IfLanguageName{finnish}{Helsingin Yliopisto}{University of Helsinki}}
+\newcommand{\compsci}{\IfLanguageName{finnish}{Tietojenkäsittelytiede}{Computer Science}}
+\newcommand{\softwaredev}{\IfLanguageName{finnish}{Ohjelmistosuunnittelja}{Software designer}}
+\newcommand{\summerintern}{\IfLanguageName{finnish}{Kesäharjoittelija (ohjelmistokehittäjä)}{Summer intern (software developer)}}
+
+
 \begin{document}
+% change language based on jobname
+\ifthenelse{\equal{\jobname}{\detokenize{cven}}}{
+  \selectlanguage{english}
+}{
+  \selectlanguage{finnish}
+}
+
 \makecvtitle
 
-\section{Koulutus}
-\cventry{2014--}{Tietojenkäsittelytiede}{Helsingin Yliopisto}{Helsinki}{}{}  % arguments 3 to 6 can be left empty
-\cventry{2010--1014}{Tietojenkäsittelytiede}{Oulun Yliopisto}{Oulu}{}{(2 vuotta tästä ajasta olin poissaolevana: varusmiespalveluksessa ja töissä.)}
-\cventry{2007--2010}{International Baccalaureate Diploma}{Oulun Lyseon Lukio}{Oulu}{}{Kansainvälinen ylioppilastutkinto. Kaksikielinen diplomi myönnetty.}
+\section{\IfLanguageName{finnish}{Koulutus}{Education}}
+\cventry{2014--\current}{\compsci}{\univHelsinki}{Helsinki}{}{}  % arguments 3 to 6 can be left empty
+\cventry{2010--1014}{\compsci}{\univOulu}{Oulu}{}{\IfLanguageName{finnish}{(2 vuotta tästä ajasta olin poissaolevana: varusmiespalveluksessa ja töissä.)}{(2 years of this time were spent outside of studies: military service and work)}}
+\cventry{2007--2010}{International Baccalaureate Diploma}{Oulun Lyseon Lukio}{Oulu}{}{\IfLanguageName{finnish}{Kansainvälinen ylioppilastutkinto. Kaksikielinen diplomi myönnetty.}{Bilingual diploma was granted.}}
 
-\section{Kokemus}
-\subsection{Työkokemus}
-\cventry{05.2013--nykyinen}{Ohjelmistosuunnittelija}{Talgraf Oy}{Oulu}{}{
-  Olen toiminut Talgrafilla yrityksen oman ohjelmiston, talousraportoinnin ja budjetoinnin järjestelmän Accunan parissa. Toteutusalustana projektilla on .net-framework windowsilla. Ohjelmisto on toteutettu C\#:lla.
-  Tehtäviini on kuulunut:
-  \begin{itemize}
-    \item Käyttöliittymäohjelmointi Windows Presentation Foundationia käyttäen MVP-rakenteella.
-    \item Raporttien laskennan ja visualisoinnin toteuttamista.
-    \item SQL-tietokannan rakenteen suunnittelua ja ylläpitöä, sekä normaalia kyselyä.
-    \item Vanhemman koodin refaktorointia.
-  \end{itemize}
-  Lisäksi olen käynyt asiakaskäynneillä toimittamassa ja kouluttamassa ohjelmiston käyttöä ohjelmistoasiantuntijamme kanssa.\\
-  Muutettuani Helsinkiin opiskelemaan olen tehnyt töitä etänä osa-aikaisena.
+\section{\IfLanguageName{finnish}{Kokemus}{Experience}}
+\subsection{\IfLanguageName{finnish}{Työkokemus}{Work experience}}
+\cventry{05.2013--\current}{\softwaredev}{Talgraf Oy}{Oulu}{}{
+  \IfLanguageName{finnish}{
+    Olen toiminut Talgrafilla yrityksen oman ohjelmiston, talousraportoinnin ja budjetoinnin järjestelmän Accunan parissa. Toteutusalustana projektilla on .net-framework windowsilla. Ohjelmisto on toteutettu C\#:lla.
+    Tehtäviini on kuulunut:
+    \begin{itemize}
+      \item Käyttöliittymäohjelmointi Windows Presentation Foundationia käyttäen MVP-rakenteella.
+      \item Raporttien laskennan ja visualisoinnin toteuttamista.
+      \item SQL-tietokannan rakenteen suunnittelua ja ylläpitöä, sekä normaalia kyselyä.
+      \item Vanhemman koodin refaktorointia.
+    \end{itemize}
+    Lisäksi olen käynyt asiakaskäynneillä toimittamassa ja kouluttamassa ohjelmiston käyttöä ohjelmistoasiantuntijamme kanssa.\\
+    Muutettuani Helsinkiin opiskelemaan olen tehnyt töitä etänä osa-aikaisena.
+  }{
+    I have been working on Talgraf's own financial reporting and budgeting application Accuna. The application is written in C\#, targeting the .net platform on Windows.
+    My work includes:
+    \begin{itemize}
+      \item User interface implementation with the Windows Presentation Foundation using the MVP structure
+      \item Implementation of report generation and calculation, as well as some of the visualisations
+      \item Design and maintenance of SQL databases
+      \item Refactoring of old code
+    \end{itemize}
+    I've also been on deployment and training trips to clients' premises with our software specialist.\\
+    Since moving to Helsinki, I've worked remotely part time.
+  }
 }
-\cventry{06.2011--08.2011}{Kesäharjoittelija (Ohjelmistokehittäjä)}{Soleno Oy}{Oulu}{}{Tehtäviini kuului asiakkaiden web-sivujen kehitys- ja ylläpitotehtäviä, Drupalin REST-rajapintalisäosan kehitystä ja dokumentointia, sekä yrityksen sisäiseen Visual Basicilla toteutettuun ohjelmiston uusien ominaisuuksien kehittäminen.}
-\cventry{06.2009--08.2009}{Kesäharjoittelija (Ohjelmistokehittäjä)}{Identoi Oy}{Oulu}{}{Tehtävinäni oli RFID-päätteellisen kioskitietokoneen konfigurointi sekä kehityksessä olleen Windows Mobile -sovelluksen testaaminen}
-\cventry{06.2008--08.2008}{Kesäharjoittelija (Ohjelmistokehittäjä)}{Identoi Oy}{Oulu}{}{Tehtävänäni oli vanhalla teknologialla toteutetun Windows Mobile -sovelluksen uudelleentoteuttaminen käyttäen .net-ympäristöä. Projektiin kuului sovelluksen käyttöliittymän ja logiikan toteutus, mutta suurin osa projektia oli vanhan sovellusframeworkin käyttämän verkkoprotokollan implementointi C\#:lla.}
+\cventry{06.2011--08.2011}{\summerintern}{Soleno Oy}{Oulu}{}{
+  \IfLanguageName{finnish}{
+    Tehtäviini kuului asiakkaiden web-sivujen kehitys- ja ylläpitotehtäviä, Drupalin REST-rajapintalisäosan kehitystä ja dokumentointia, sekä yrityksen sisäiseen Visual Basicilla toteutettuun ohjelmiston uusien ominaisuuksien kehittäminen.
+  }{
+    My assignments included development and maintenance of clients' web pages, development and documentation of a Drupal REST plugin, and developing new features for a company internal program written in Visual Basic.
+  }
+}
+\cventry{06.2009--08.2009}{\summerintern}{Identoi Oy}{Oulu}{}{
+  \IfLanguageName{finnish}{
+    Tehtävinäni oli RFID-päätteellisen kioskitietokoneen konfigurointi sekä kehityksessä olleen Windows Mobile -sovelluksen testaaminen
+  }{
+    My assignments were configuring an RFID enabled kiosk computer, and testing a Windows Mobile application the company was developing.
+  }
+}
+\cventry{06.2008--08.2008}{\summerintern}{Identoi Oy}{Oulu}{}{
+  \IfLanguageName{finnish}{
+    Tehtävänäni oli vanhalla teknologialla toteutetun Windows Mobile -sovelluksen uudelleentoteuttaminen käyttäen .net-ympäristöä. Projektiin kuului sovelluksen käyttöliittymän ja logiikan toteutus, mutta suurin osa projektia oli vanhan sovellusframeworkin käyttämän verkkoprotokollan implementointi C\#:lla.
+  }{
+    My main assignment was redesigning an existing Windows Mobile application built with an old technology onto a .net-stack. The project included designing and implementing the ui and business logic of the application, but most of the work went to implementing a networking protocol used by the old libraries in C\#.
+  }
+}
 \clearpage
-\subsection{Muut projektit}
-\cventry{10.2015--nykyinen}{Ohjelmistosuunnittelija}{Roihu 2016 digitaaliset palvelut -tiimi}{Helsinki}{}{Olen osa vapaaehtoistiimiä joka tuottaa Suomen Partiolaisten tulevalle suurleirille tukipalveluita, muun muassa hankintajärjestelmän, leirirekisterin, sekä leiriläisen mobiiliapplikaation. Näitä projekteja toteutamme nodejs/loopback/react+flux-stackilla. Projektit tullaan julkaisemaan open sourcena.}
+\subsection{\IfLanguageName{finnish}{Muut projektit}{Other projects}}
+\cventry{10.2015--\current}{\softwaredev}{Roihu 2016 \IfLanguageName{finnish}{digitaaliset palvelut -tiimi}{digital services -team}}{Helsinki}{}{
+  \IfLanguageName{finnish}{
+    Olen osa vapaaehtoistiimiä joka tuottaa Suomen Partiolaisten tulevalle suurleirille tukipalveluita, muun muassa hankintajärjestelmän, leirirekisterin, sekä leiriläisen mobiiliapplikaation. Näitä projekteja toteutamme nodejs/loopback/react+flux-stackilla. Projektit tullaan julkaisemaan open sourcena.
+  }{
+    I participate in a volunteer team producing supportive software services for the upcoming finnish scouts jamboree of 2016. The software projects we are developing include a procurement service, registry of camp participants and a mobile application for the campers. The projects are developed using a nodejs/loopback/react+flux-stack. They will be released as open source some time in 2016.
+  }
+}
 
-\section{Kielitaito}
-\cvitemwithcomment{Suomi}{Äidinkieli}{}
-\cvitemwithcomment{Englanti}{Erinomainen}{Suoritin lukion täysin englanniksi. Englanti on lähes äidinkielen tasolla.}
-\cvitemwithcomment{Saksa}{Hyvä}{Ymmärrys on erinomaista, puhuessa tulen toimeen.}
+\section{\IfLanguageName{finnish}{Kielitaito}{Language skills}}
+\IfLanguageName{finnish}{
+  \cvitemwithcomment{Suomi}{Äidinkieli}{}
+}{
+  \cvitemwithcomment{Finnish}{My first language}{}
+}
+\IfLanguageName{finnish}{
+  \cvitemwithcomment{Englanti}{Erinomainen}{Suoritin lukion täysin englanniksi. Englanti on lähes äidinkielen tasolla.}
+}{
+  \cvitemwithcomment{English}{Excellent}{Almost native level. My high school studies were entirely in English.}
+}
+\IfLanguageName{finnish}{
+  \cvitemwithcomment{Saksa}{Hyvä}{Ymmärrys on erinomaista, puhuessa tulen toimeen.}
+}{
+  \cvitemwithcomment{German}{Good}{I understand German very well, and am able to communicate}
+}
 
-\section{Harrastukset}
-\cvitem{Partio}{Olen harrastanut partiota 6-vuotiaasta asti. Nautin siitä avoimen sosiaalisen ilmapiirin ja luonnossa liikkumisen vuoksi.}
-\cvitem{Lautapelit}{Lautapelien parissa on hauska viettää aikaa.}
-\cvitem{Kuntosali}{On again, off again -harrastus. Kuntosalilla käymisessä kiehtoo itsensä haastaminen ja voittaminen, sekä ajattelun täysi tarpeettomuus.}
+\section{\IfLanguageName{finnish}{Harrastukset}{Other activities}}
+\IfLanguageName{finnish}{
+  \cvitem{Partio}{Olen harrastanut partiota 6-vuotiaasta asti. Nautin siitä avoimen sosiaalisen ilmapiirin ja luonnossa liikkumisen vuoksi.}
+}{
+  \cvitem{Scouting}{I've been a scout since I was 6 years old. I like the open social atmosphere and connection to nature scouts have.}
+}
+\IfLanguageName{finnish}{
+  \cvitem{Lautapelit}{Lautapelien parissa on hauska viettää aikaa.}
+}{
+  \cvitem{Board games}{Board games are a fun and often challenging way of spending time with friends.}
+}
+\IfLanguageName{finnish}{
+  \cvitem{Kuntosali}{On again, off again -harrastus. Kuntosalilla käymisessä kiehtoo itsensä haastaminen ja voittaminen, sekä ajattelun täysi tarpeettomuus.}
+}{
+  \cvitem{Weight training}{An on again, off again kind of a hobby. What excites me most about going to the gym is challenging myself and winning, as well as being able to clear my mind while excercising.}
+}
+\section{\IfLanguageName{finnish}{Aiemmat luottamustehtävät}{Positions previously held}}
+\cvlistitem{\IfLanguageName{finnish}{Partiolippukunnan varajohtaja, hallituksen jäsen}{Vice president and member of board of local scouts group}}
+\cvlistitem{\IfLanguageName{finnish}{Oulun tietojenkäsittelytieteen opiskelijoiden ainejärjestön Blankon toimihenkilö}{Official of the student organization of computer science studets at the University of Oulu, Blanko.}}
 
-\section{Luottamustehtävät}
-\cvlistitem{Partiolippukunnan varajohtaja, hallituksen jäsen}
-\cvlistitem{Oulun tietojenkäsittelytieteen opiskelijoiden ainejärjestön Blankon toimihenkilö}
-
+\IfLanguageName{finnish}{
 \section{Varusmieskoulutus}
-Suoritin varusmiespalveluksen Ilmasotakoulussa Tikkakoskella 9.1.2012 - 4.1.2013. Suoritin aliupseerikurssin elektronisen sodankäynnin koulutushaarassa. Toimin peruskoulutuskauden ryhmänjohtajana ja aliupseerikurssin apukouluttajana. Ylenin 5.12.2012 kersantiksi. Johtajakauteni yleisarvio oli Kiitettävä (asteikko Erinomainen/Kiitettävä/Hyvä/Tyydyttävä/Välttävä).
+\cvitem{}{Suoritin varusmiespalveluksen Ilmasotakoulussa Tikkakoskella 9.1.2012 - 4.1.2013. Suoritin aliupseerikurssin elektronisen sodankäynnin koulutushaarassa. Toimin peruskoulutuskauden ryhmänjohtajana ja aliupseerikurssin apukouluttajana. Ylenin 5.12.2012 kersantiksi. Johtajakauteni yleisarvio oli Kiitettävä (asteikko Erinomainen/Kiitettävä/Hyvä/Tyydyttävä/Välttävä).}
+}{}
 
 \clearpage
 %-----       letter       ---------------------------------------------------------

@@ -1,5 +1,5 @@
 # cv
-My resume. Currently only in Finnish.
+My resume.
 
 # Pdf
-You can download the cv in pdf format here:  [cv.pdf](https://github.com/googol/cv/releases/download/2015-11-09/cv.pdf).
+You can download the cv in pdf format here:  [Finnish CV](https://github.com/googol/cv/releases/download/2015-11-10/cv.pdf) [English CV](https://github.com/googol/cv/releases/download/2015-11-10/cven.pdf)
